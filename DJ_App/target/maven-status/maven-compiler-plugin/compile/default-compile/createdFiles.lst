@@ -1,2 +1,6 @@
+com/google/sps/TimeRange$1.class
+com/google/sps/EventsServlet.class
+com/google/sps/TimeRange.class
+com/google/sps/TimeRange$2.class
 com/google/sps/servlets/DataServlet.class
-com/google/sps/data/Message.class
+com/google/sps/Event.class

@@ -2,65 +2,40 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Anooj Shah's Portfolio</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
     <script src="script.js"></script>
   </head>
   <body>
-    <div id="content" class="hover01">
-      <h1>Anooj Shah's Portfolio</h1>
-      <figure> <img src="./images/anoojshah.png" id="profile" alt="Anooj Profile Picture"> </figure>
-      <p>My name is Anooj! I am a Sophomore Computer Science Major at Texas A&M University.</p>
-    </div>
-    <div id="Hobbies">
-      <h2>Here are some of my Interests</h2>
-      <div id="hobby">
-        <div id="parent">
-          <img class="interests-image" id="music" src="./images/music.png">
-          <img class="interests-image" src="./images/travel.png">
-          <img class="interests-image" src="./images/hackathon.png">
-        </div>
-      </div>
-    </div>
-    <div id="projects">
-      <h2>Check out some of my Projects!</h2>
-      <div id="project">
-        <div class="card">
-          <h3>
-          <a href="https://devpost.com/software/braille-iant-o1gcya">
-            Braille-iant</h4>
-        </div>
-        <div class="card">
-        <h3><a href="https://devpost.com/software/25-to-5">T-Mobile Phone Visualization</h4>
-        </div>
-        <div class="card">
-        <h3><a href="https://github.com/anooj-shah/Smart-Pill-Dispenser">Smart Pill Dispenser</a></h3>
-        </div>
-        <div class="card">
-          <h3><a href="https://devpost.com/software/notifire-50j46i">Not-i-Fire</a></h3>
-        </div>
-        <div class="card">
-          <h3><a href="https://github.com/anooj-shah/Feelr">Feelr</a></h3>
-        </div>
-      </div>
-    </div>
-    <div id="messages">
-      <button onclick="getMessages()">Click to Get Message</button>
-      <div id="messages-container"></div>
-    </div>
-    <br/>
-    <form action="/data" method="POST">
-      <p>Enter a comment:</p>
-      <textarea name="text-input">Add more Pictures...!</textarea>
-      <br/>
-      <input type="submit" />
+
+    <form action="/events" method="POST">
+        <p> Create you event here </p>
+
+        <ul>
+            <li>
+                <label for="djName">Your DJ Name:</label>
+                <input type="text" id="djName" name="dj_name">
+            </li>
+            <li>
+                <label for="location">Location of your event:</label>
+                <input type="text" id="location" name="event_location">
+            </li>
+            <li>
+                <label for="startTime">Starting time of event:</label>
+                <input type="text" id="startTime" name="start_time">
+            </li>
+            <li>
+                <label for="endTime">Ending time of event:</label>
+                <input type="text" id="endTime" name="end_time">
+            </li>
+            <li>
+                <label for="eventDescription">Event description:</label>
+                <textarea id="eventDescription" name="event_description"></textarea>
+            </li>
+        </ul>
+        <input type="submit"/>
     </form>
-    <br/>
-    <br/>
-    <div id="footer">
-      <a href="https://www.linkedin.com/in/anooj-shah/">
-      <img src="./images/linkedin.png" id="linkedin" alt= "linkedin logo">
-    </div>
+
+
   </body>
 </html>
