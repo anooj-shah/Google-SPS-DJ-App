@@ -54,6 +54,7 @@ public class EventsServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    System.out.println("Inside Post: " + request.getParameter("djName"));
 
     // Data storage
     Entity eventEntity = new Entity("Event");
