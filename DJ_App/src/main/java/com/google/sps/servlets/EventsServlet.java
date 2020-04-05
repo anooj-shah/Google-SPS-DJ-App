@@ -35,14 +35,14 @@ public class EventsServlet extends HttpServlet {
     List<Event> events = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
       long id = entity.getKey().getId();
-      int eventID = (int) entity.getProperty("eventID");
+      long eventID = (long) entity.getProperty("eventID");
       String djName = (String) entity.getProperty("djName");
       String eventName = (String) entity.getProperty("eventName");
       String location = (String) entity.getProperty("location");
-      // TimeRange timeRange = (TimeRange) entity.getProperty("timeRange")
+      String timeRange = (String) entity.getProperty("timeRange");
       String eventDescription = (String) entity.getProperty("eventDescription");
 
-      Event e = new Event(id, eventID, djName, eventName, location, null, eventDescription);
+      Event e = new Event(id, eventID, djName, eventName, location, timeRange, eventDescription);
 
       events.add(e);
       System.out.println("Events: " + events);
