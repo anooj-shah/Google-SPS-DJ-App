@@ -21,7 +21,8 @@ import java.util.List;
 // Persistent storage for events created by DJ's
 
 // TODO1: Make TimeRange work
-// TODO2: Make sure events storage are persistent?
+// TODO2: Make sure events storage are persistent? 
+// TODO3: Test GET request from index.html
 @WebServlet("/events")
 public class EventsServlet extends HttpServlet {
   @Override
@@ -62,10 +63,10 @@ public class EventsServlet extends HttpServlet {
     eventEntity.setProperty("djName", request.getParameter("djName"));
     eventEntity.setProperty("eventName", request.getParameter("eventName"));
     eventEntity.setProperty("location", request.getParameter("location"));
-    // Need to figure out how to do TimeRange
-    //TimeRange time = TimeRange.fromStartEnd(Integer.valueOf(request.getParameter("startTime")), Integer.valueOf(request.getParameter("endTime")), true);
-    //TimeRange time = TimeRange.WHOLE_DAY;
-    //eventEntity.setProperty("timeRange", time);
+    // TimeRange time = TimeRange.fromStartEnd(Integer.valueOf(request.getParameter("startTime")), Integer.valueOf(request.getParameter("endTime")), true);
+    // time = time.WHOLE_DAY;
+    TimeRange time = TimeRange.fromStartEnd(Integer.valueOf(request.getParameter("startTime")),Integer.valueOf(request.getParameter("endTime")),true);
+    eventEntity.setProperty("timeRange", time.toString());
     eventEntity.setProperty("eventDescription", request.getParameter("eventDescription"));
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(eventEntity);
