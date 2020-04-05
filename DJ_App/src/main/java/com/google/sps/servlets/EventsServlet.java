@@ -1,5 +1,5 @@
 
-package com.google.sps;
+package com.google.sps.servlets;
 
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
@@ -8,13 +8,15 @@ import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
 import java.io.IOException;
-// import com.google.sps.data.Event; Do you know why this is giving me an error??
-// import com.google.sps.data.TimeRange;
+import com.google.gson.Gson;
+import com.google.sps.data.Event;
+import com.google.sps.data.TimeRange;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import java.util.ArrayList;
+import java.util.List;
 
 // Persistent storage for events created by DJ's
 
@@ -39,7 +41,7 @@ public class EventsServlet extends HttpServlet {
       // TimeRange timeRange = (TimeRange) entity.getProperty("timeRange")
       String eventDescription = (String) entity.getProperty("eventDescription");
 
-      Event e = new Event(id, event_id, djName, eventName, location, timeRange, eventDescription);
+      Event e = new Event(id, eventID, djName, eventName, location, null, eventDescription);
 
       events.add(e);
       System.out.println("Events: " + events);

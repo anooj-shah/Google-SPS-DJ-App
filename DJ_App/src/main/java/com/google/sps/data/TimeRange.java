@@ -1,5 +1,5 @@
 
-package com.google.sps;
+package com.google.sps.data;
 
 import java.util.Comparator;
 
