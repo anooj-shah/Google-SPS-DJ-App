@@ -8,6 +8,8 @@ import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
 import java.io.IOException;
+// import com.google.sps.data.Event; Do you know why this is giving me an error??
+// import com.google.sps.data.TimeRange;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,12 +36,13 @@ public class EventsServlet extends HttpServlet {
       String djName = (String) entity.getProperty("djName");
       String eventName = (String) entity.getProperty("eventName");
       String location = (String) entity.getProperty("location");
-      TimeRange timeRange = (TimeRange) entity.getProperty("timeRange")
+      // TimeRange timeRange = (TimeRange) entity.getProperty("timeRange")
       String eventDescription = (String) entity.getProperty("eventDescription");
 
       Event e = new Event(id, event_id, djName, eventName, location, timeRange, eventDescription);
 
       events.add(e);
+      System.out.println("Events: " + events);
     }
     Gson gson = new Gson();
 
@@ -56,6 +59,7 @@ public class EventsServlet extends HttpServlet {
     eventEntity.setProperty("djName", request.getParameter("djName"));
     eventEntity.setProperty("eventName", request.getParameter("eventName"));
     eventEntity.setProperty("location", request.getParameter("location"));
+    // Need to figure out how to do TimeRange
     //TimeRange time = TimeRange.fromStartEnd(Integer.valueOf(request.getParameter("startTime")), Integer.valueOf(request.getParameter("endTime")), true);
     //TimeRange time = TimeRange.WHOLE_DAY;
     //eventEntity.setProperty("timeRange", time);

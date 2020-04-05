@@ -4,7 +4,9 @@ package com.google.sps;
 public final class Event {
 
   private final long tokenID;
+  private final int eventID;
   private final String djName;
+  private final String eventName;
   private final String location;
   private final TimeRange timeRange;
   private final String eventDescription;
