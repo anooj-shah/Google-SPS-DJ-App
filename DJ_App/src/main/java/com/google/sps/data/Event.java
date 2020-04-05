@@ -9,9 +9,11 @@ public final class Event {
   private final TimeRange timeRange;
   private final String eventDescription;
 
-  public Event (long ID, String djName, String location, TimeRange timeRange, String eventDescription) {
+  public Event (long ID, int eventID, String djName, String eventName, String location, TimeRange timeRange, String eventDescription) {
     this.tokenID = ID;
+    this.eventID = eventID;
     this.djName = djName;
+    this.eventName = eventName;
     this.location = location;
     this.timeRange = timeRange;
     this.eventDescription = eventDescription;
