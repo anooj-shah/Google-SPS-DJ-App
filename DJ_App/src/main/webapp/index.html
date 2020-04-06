@@ -2,17 +2,49 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>DJ App</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
   <body>
-    <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
+
+    <form action="/events" method="POST">
+        <p> Create you event here </p>
+
+        <ul>
+            <li>
+                <label for="djName">Your DJ Name:</label>
+                <input type="text" id="djName" name="djName">
+            </li>
+            <li>
+                <label for="eventName">Event Name:</label>
+                <input type="text" id="eventName" name="eventName">
+            </li>
+            <li>
+                <label for="location">Location of your event:</label>
+                <input type="text" id="location" name="location">
+            </li>
+            <li>
+                <label for="startTime">Starting time of event:</label>
+                <input type="text" id="startTime" name="startTime">
+            </li>
+            <li>
+                <label for="endTime">Ending time of event:</label>
+                <input type="text" id="endTime" name="endTime">
+            </li>
+            <li>
+                <label for="eventDescription">Event description:</label>
+                <textarea id="eventDescription" name="eventDescription"></textarea>
+            </li>
+        </ul>
+        <input type="submit"/>
+    </form>
+
+    <div id="events">
+      <button onclick="getEvents()">Click to Get Events</button>
+      <div id="events-container"></div>
     </div>
+
+
   </body>
 </html>
