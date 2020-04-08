@@ -1,2 +1,4 @@
+/home/ashah/Google-SPS-DJ-App/DJ_App/src/main/java/com/google/sps/servlets/EventsServlet.java
 /home/ashah/Google-SPS-DJ-App/DJ_App/src/main/java/com/google/sps/servlets/DataServlet.java
-/home/ashah/Google-SPS-DJ-App/DJ_App/src/main/java/com/google/sps/data/Message.java
+/home/ashah/Google-SPS-DJ-App/DJ_App/src/main/java/com/google/sps/data/TimeRange.java
+/home/ashah/Google-SPS-DJ-App/DJ_App/src/main/java/com/google/sps/data/Event.java
