@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 
 // Persistent storage for songs created by DJ's
 
@@ -54,16 +56,47 @@ public class SongsServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
     System.out.println("Inside Post: " + request.getParameter("songName"));
 
-    // Data storage
-    Entity songEntity = new Entity("Song");
-    songEntity.setProperty("songID", 4321);
-    //System.out.println(Integer.parseInt(request.getParameter("eventID")));
-    songEntity.setProperty("eventID", Integer.parseInt(request.getParameter("eventID")));
-    songEntity.setProperty("songName", request.getParameter("songName"));
-    songEntity.setProperty("songVotes", 1);
-    
+    // Retrieving information from datastore
+    Query query = new Query("Song");
     DatastoreService datastoreSongs = DatastoreServiceFactory.getDatastoreService();
-    datastoreSongs.put(songEntity);
+    PreparedQuery results = datastoreSongs.prepare(query);
+
+    String songName = (String)request.getParameter("songName");
+    long eventID = Long.parseLong(request.getParameter("eventID"));
+    boolean present = false;
+
+    System.out.println(songName);
+    System.out.println(eventID);
+
+    for (Entity curr : results.asIterable()) {
+        if ((((String)curr.getProperty("songName")).equals(songName)) &&
+        ((long)curr.getProperty("eventID") == eventID)) {
+            // existing event and existing song
+            long songVotes = (long) curr.getProperty("songVotes") + 1;
+            curr.setProperty("songVotes", songVotes);
+            present = true;
+            datastoreSongs.put(curr);
+            break;
+        }
+    }
+
+    if (!present) {
+        // create new song entity
+        Set<Long> songIDs = new HashSet<Long>();
+        for (Entity curr : results.asIterable()) {
+            songIDs.add((long)curr.getProperty("songID"));
+        }
+        long songID = 10000;
+        while (songIDs.contains(songID)){
+            songID = Math.round(Math.random() * 10000);
+        }
+        Entity songEntity = new Entity("Song", songID);
+        songEntity.setProperty("songID", songID);
+        songEntity.setProperty("eventID", eventID);
+        songEntity.setProperty("songName", songName);
+        songEntity.setProperty("songVotes", 1);
+        datastoreSongs.put(songEntity);
+    }
 
     // Stay on same page
     response.sendRedirect("/");
