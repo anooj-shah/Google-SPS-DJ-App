@@ -65,9 +65,6 @@ public class SongsServlet extends HttpServlet {
     long eventID = Long.parseLong(request.getParameter("eventID"));
     boolean present = false;
 
-    System.out.println(songName);
-    System.out.println(eventID);
-
     for (Entity curr : results.asIterable()) {
         if ((((String)curr.getProperty("songName")).equals(songName)) &&
         ((long)curr.getProperty("eventID") == eventID)) {
