@@ -8,6 +8,15 @@
   </head>
   <body>
 
+    <div id="content">
+      <h1>My Portfolio</h1>
+      <p>This is my portfolio.</p>
+      <p>Click here to get a random message:</p>
+      <a href = "./loginPage/loginPage.html" > "Click to see login page"</a> 
+      <button onclick="addRandomGreeting()">Hello</button>
+      <div id="greeting-container"></div>
+
+
     <form action="/events" method="POST">
         <p> Create you event here </p>
 
@@ -43,8 +52,30 @@
     <div id="events">
       <button onclick="getEvents()">Click to Get Events</button>
       <div id="events-container"></div>
+
     </div>
 
+    <form action="/songs" method="POST">
+        <p> Add your song here </p>
+
+        <ul>
+            <li>
+                <label for="songName">Song name:</label>
+                <input type="text" id="songName" name="songName">
+            </li>
+            <li>
+                <label for="eventID">Event ID:</label>
+                <input type="number" id="eventID" name="eventID">
+            </li>
+        </ul>
+        <input type="submit"/>
+    </form>
+
+    <div id="songs">
+      <button onclick="getSongs()">Click to Get Songs</button>
+      <div id="songs-container"></div>
+
+    </div>
 
   </body>
 </html>

@@ -9,6 +9,17 @@ function getEvents() {
   });
 }
 
+function getSongs() {
+  fetch('/songs').then(response => response.json()).then((songs) => {
+    const songsElement = document.getElementById('songs-container');
+    songsElement.innerHTML = "";
+    console.log(songs);
+    for (i of songs) {
+      songsElement.appendChild(createListElement(i.songName));
+    }
+  });
+}
+
 function createListElement(event) {
   const element = document.createElement('li');
   element.innerText = event;
