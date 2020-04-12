@@ -20,7 +20,7 @@ import java.util.Set;
 import java.util.HashSet;
 
 // Persistent storage for songs created by DJ's
-
+// test
 @WebServlet("/songs")
 public class SongsServlet extends HttpServlet {
   
@@ -64,9 +64,6 @@ public class SongsServlet extends HttpServlet {
     String songName = (String)request.getParameter("songName");
     long eventID = Long.parseLong(request.getParameter("eventID"));
     boolean present = false;
-
-    System.out.println(songName);
-    System.out.println(eventID);
 
     for (Entity curr : results.asIterable()) {
         if ((((String)curr.getProperty("songName")).equals(songName)) &&
