@@ -3,23 +3,15 @@
   <head>
     <meta charset="UTF-8">
     <title>DJ App</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style/style.css">
     <script src="script.js"></script>
   </head>
-  <body>
-
+  <body onload="getEvents()">
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
+      <h1>Create Event</h1>
       <a href = "./loginPage/loginPage.html" > "Click to see login page"</a> 
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
-
 
     <form action="/events" method="POST">
-        <p> Create you event here </p>
-
         <ul>
             <li>
                 <label for="djName">Your DJ Name:</label>
@@ -50,9 +42,7 @@
     </form>
 
     <div id="events">
-      <button onclick="getEvents()">Click to Get Events</button>
       <div id="events-container"></div>
-
     </div>
 
     <form action="/songs" method="POST">
