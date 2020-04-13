@@ -35,14 +35,14 @@ public class EventsServlet extends HttpServlet {
     List<Event> events = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
       long id = entity.getKey().getId();
-      long eventID = (long) entity.getProperty("eventID");
+      String accessCode = (String) entity.getProperty("accessCode");
       String djName = (String) entity.getProperty("djName");
       String eventName = (String) entity.getProperty("eventName");
       String location = (String) entity.getProperty("location");
       String timeRange = (String) entity.getProperty("timeRange");
       String eventDescription = (String) entity.getProperty("eventDescription");
 
-      Event e = new Event(id, eventID, djName, eventName, location, timeRange, eventDescription);
+      Event e = new Event(id, accessCode, djName, eventName, location, timeRange, eventDescription);
 
       events.add(e);
       System.out.println("Events: " + events);
@@ -58,13 +58,11 @@ public class EventsServlet extends HttpServlet {
     System.out.println("Inside Post: " + request.getParameter("djName"));
 
     // Data storage
-    Entity eventEntity = new Entity("Event");
-    eventEntity.setProperty("eventID", 1234);
+    Entity eventEntity = new Entity("Event", request.getParameter("accessCode"));
+    eventEntity.setProperty("accessCode", request.getParameter("accessCode"));
     eventEntity.setProperty("djName", request.getParameter("djName"));
     eventEntity.setProperty("eventName", request.getParameter("eventName"));
     eventEntity.setProperty("location", request.getParameter("location"));
-    // TimeRange time = TimeRange.fromStartEnd(Integer.valueOf(request.getParameter("startTime")), Integer.valueOf(request.getParameter("endTime")), true);
-    // time = time.WHOLE_DAY;
     TimeRange time = TimeRange.fromStartEnd(Integer.valueOf(request.getParameter("startTime")),Integer.valueOf(request.getParameter("endTime")),true);
     eventEntity.setProperty("timeRange", time.toString());
     eventEntity.setProperty("eventDescription", request.getParameter("eventDescription"));
