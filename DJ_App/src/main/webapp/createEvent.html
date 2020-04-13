@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <title>DJ App</title>
-    <link rel="stylesheet" href="/style/style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="scripts/client.js"></script>
   </head>
   <body onload="getEvents()">
     <div id="content">
@@ -44,6 +44,9 @@
     <div id="events">
       <div id="events-container"></div>
     </div>
+        <!-- <div id="events">
+      <button onclick="getEvents()">Click to Get Events</button>
+      <div id="events-container"></div> -->
 
     <form action="/songs" method="POST">
         <p> Add your song here </p>
