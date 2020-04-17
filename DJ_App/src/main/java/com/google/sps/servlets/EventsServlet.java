@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+
 // Persistent storage for events created by DJ's
 
 // TODO1: Make TimeRange work
@@ -40,9 +41,11 @@ public class EventsServlet extends HttpServlet {
       String eventName = (String) entity.getProperty("eventName");
       String location = (String) entity.getProperty("location");
       String timeRange = (String) entity.getProperty("timeRange");
+      String startTime = (String) entity.getProperty("startTime");
+      String endTime = (String) entity.getProperty("endTime");
       String eventDescription = (String) entity.getProperty("eventDescription");
 
-      Event e = new Event(id, accessCode, djName, eventName, location, timeRange, eventDescription);
+      Event e = new Event(id, accessCode, djName, eventName, location, timeRange, startTime, endTime, eventDescription);
 
       events.add(e);
       System.out.println("Events: " + events);
@@ -64,8 +67,11 @@ public class EventsServlet extends HttpServlet {
     eventEntity.setProperty("eventName", request.getParameter("eventName"));
     eventEntity.setProperty("location", request.getParameter("location"));
     TimeRange time = TimeRange.fromStartEnd(Integer.valueOf(request.getParameter("startTime")),Integer.valueOf(request.getParameter("endTime")),true);
+    eventEntity.setProperty("startTime", request.getParameter("startTime"));
+    eventEntity.setProperty("endTime", request.getParameter("endTime"));
     eventEntity.setProperty("timeRange", time.toString());
     eventEntity.setProperty("eventDescription", request.getParameter("eventDescription"));
+
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(eventEntity);
 
