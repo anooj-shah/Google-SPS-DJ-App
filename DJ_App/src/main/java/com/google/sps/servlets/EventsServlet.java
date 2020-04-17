@@ -59,7 +59,7 @@ public class EventsServlet extends HttpServlet {
 
     // Data storage
     Entity eventEntity = new Entity("Event");
-    eventEntity.setProperty("eventID", 1234);
+    eventEntity.setProperty("eventID", request.getParameter("eventID"));
     eventEntity.setProperty("djName", request.getParameter("djName"));
     eventEntity.setProperty("eventName", request.getParameter("eventName"));
     eventEntity.setProperty("location", request.getParameter("location"));

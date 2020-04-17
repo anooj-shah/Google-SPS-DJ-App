@@ -11,14 +11,13 @@ signInButton.addEventListener('click', () => {
 });
 
 function createEventForm() {
-    var r = document.createElement('span');
-    var y = document.createElement("INPUT");
-    y.setAttribute("type", "text");
-    y.setAttribute("placeholder", "Email");
-    y.setAttribute("Name", "textelement_" + i);
-    r.appendChild(y);
-    g.setAttribute("onclick", "removeElement('myForm','id_" + i + "')");
-    r.appendChild(g);
-    r.setAttribute("id", "id_" + i);
-    document.getElementById("createEventForm").appendChild(r);
+    console.log("create event");
+    document.getElementById("createEvent").hidden = false;
+    document.getElementById("joinEvent").hidden = true;
+}
+
+function joinEventForm() {
+    console.log("join event");
+    document.getElementById("joinEvent").hidden = false;
+    document.getElementById("createEvent").hidden = true;
 }

@@ -13,29 +13,32 @@
             <div class="form-container sign-up-container">
                 <form action="#">
                     <!-- For DJ -->
-                    <h1>Enter DJ Name and Event ID</h1>
-                    <div class="social-container">
-                    </div>
-                    <!-- <button onclick="createEventForm()">Create Event</button> -->
-                    <!-- <button onclick="joinEventForm()">Join Event</button> -->
-                    <!-- <div>
-                        <h2>Form</h2>
-                        <form action="#" id="mainform" method="get" name="mainform">
-                            <span id="createEventForm"></span>
-                            <p></p><input type="submit" value="Submit">
+                    <h2>Enter Info</h2>
+
+                    <button onclick="createEventForm()">Create Event</button>
+                    <button onclick="joinEventForm()">Join Event</button>
+
+                    <div id="joinEvent" hidden>
+                        <form id="joinEventForm" name="joinEventForm">
+                            <input type="text" placeholder="Name" />
+                            <input type="text" placeholder="Event ID" />
+                            <!-- <button type="submit" value="Submit">Join Event</button>          -->
                         </form>
-                    </div> -->
-                    <input type="text" placeholder="Name" />
-                    <input type="text" placeholder="Event ID" />
-                    <button>Join Event</button>
-                    <!-- <h2>OR</h2>
-                    <input type="text" placeholder="DJ Name" />
-                    <input type="text" placeholder="Event Name" />
-                    <input type="text" placeholder="Event Description" />
-                    <input type="text" placeholder="Event ID" />
-                    <input type="text" placeholder="Event Date" />
-                    <input type="text" placeholder="Event Time" /> -->
-                    <!-- <button>Create Event</button> -->
+                    </div>  
+                    <div id="createEvent" hidden>
+                        <form id="createEventForm" name="createEventForm">
+                            <input type="text" placeholder="CREATE EVENT" />
+                            <input type="text" placeholder="Event ID" />
+                            <!-- <input type="text" id="djName" placeholder="DJ Name" />
+                            <input type="text" id="eventName" placeholder="Event Name" />
+                            <input type="text" id="eventID" placeholder="Event ID" />
+                            <input type="text" id="location" placeholder="Location" />
+                            <input type="text" id="startTime" placeholder="Start Time" />
+                            <input type="text" id="endTime" placeholder="End Time" />
+                            <input type="text" id="eventDescription" placeholder="Event Time" /> -->
+                            <!-- <button id="createEvent" onclick="window.location.href='/createEvent.html'">Create Event</button>     -->
+                        </form>
+                    </div>
                 </form>
             </div>
             <div class="form-container sign-in-container">
@@ -60,7 +63,7 @@
                     </div>
                 </div>
             </div>
-        </div>     
+        </div>
   </body>
   <script src="/scripts/loginPage.js"></script>
 </html>    
