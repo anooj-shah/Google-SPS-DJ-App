@@ -1,6 +1,7 @@
 function getEvents() {
-  fetch('/events').then(response => response.json()).then((events) => {
+  fetch(`/events`).then(response => response.json()).then((events) => {
     const eventsElement = document.getElementById('events-container');
+
     eventsElement.innerHTML = "";
     console.log(events);
     for (i of events) {

@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css/>"
-    <title></title>
-    <link rel="stylesheet" href="/style/loginPage.css">
-  </head>  
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css/>"
+        <title></title>
+        <link rel="stylesheet" href="/style/loginPage.css">
+    </head>  
   <body>
       <h1>APP Name</h1>
         <div class="container" id="container">
             <div class="form-container sign-up-container">
                 <form action="#">
                     <!-- For DJ -->
-                    <h2>Enter Info</h2>
+                    <!-- <h2>Enter Info</h2> -->
 
                     <button onclick="createEventForm()">Create Event</button>
                     <button onclick="joinEventForm()">Join Event</button>
-                    <div id="joinEvent" hidden>
-                        <form id="joinEventForm" name="joinEventForm">
-                            <input type="text" placeholder="Name" />
-                            <input type="text" placeholder="Event ID" />
-                            <!-- <button type="submit" value="Submit">Join Event</button>          -->
-                        </form>
-                    </div> 
-                    <div id="createEvent" hidden>
-                        <form id="cef" name="cef">
-                            <input type="text" placeholder="CREATE EVENT" />
-                            <input type="text" placeholder="Event ID" />
-                            <!-- <input type="text" id="djName" placeholder="DJ Name" />
-                            <input type="text" id="eventName" placeholder="Event Name" />
-                            <input type="text" id="eventID" placeholder="Event ID" />
-                            <input type="text" id="location" placeholder="Location" />
-                            <input type="text" id="startTime" placeholder="Start Time" />
-                            <input type="text" id="endTime" placeholder="End Time" />
-                            <input type="text" id="eventDescription" placeholder="Event Time" /> -->
-                            <!-- <button id="createEvent" onclick="window.location.href='/createEvent.html'">Create Event</button>     -->
-                        </form>
+                    <div>
+                        <div id="joinEvent" hidden>
+                            <form action="/events" method="GET">
+                                <input type="text" placeholder="Name" />
+                                <input type="text" placeholder="Event ID" />
+                                <button type="submit" value="Submit">Submit</button>         
+                            </form>
+                        </div>
+                        <div id="createEvent" hidden>
+                            <form action="/events" method="POST">
+                                <input type="text" id="djName" name="djName" placeholder="DJ Name" />
+                                <input type="text" id="eventName" name="eventName" placeholder="Event Name" />
+                                <input type="text" id="eventID" name="eventID" placeholder="Event ID" />
+                                <input type="text" id="location" name="location" placeholder="Location" />
+                                <input type="text" id="startTime" name="startTime" placeholder="Start Time" />
+                                <input type="text" id="endTime" name="endTime" placeholder="End Time" />
+                                <input type="text" id="eventDescription" name="eventDescription" placeholder="Event Description" />
+                                
+                                <!-- <button type="submit" value="Submit">Submit</button>          -->
+                                <input type="submit"/>
+                            </form>
+                        </div>
                     </div>
-                     
                     
                 </form>
             </div>
@@ -65,6 +66,6 @@
                 </div>
             </div>
         </div>
-  </body>
-  <script src="/scripts/loginPage.js"></script>
+    </body>
+    <script src="/scripts/loginPage.js"></script>
 </html>    

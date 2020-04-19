@@ -65,8 +65,8 @@ public class EventsServlet extends HttpServlet {
     eventEntity.setProperty("location", request.getParameter("location"));
     // TimeRange time = TimeRange.fromStartEnd(Integer.valueOf(request.getParameter("startTime")), Integer.valueOf(request.getParameter("endTime")), true);
     // time = time.WHOLE_DAY;
-    TimeRange time = TimeRange.fromStartEnd(Integer.valueOf(request.getParameter("startTime")),Integer.valueOf(request.getParameter("endTime")),true);
-    eventEntity.setProperty("timeRange", time.toString());
+    // TimeRange time = TimeRange.fromStartEnd(Integer.valueOf(request.getParameter("startTime")),Integer.valueOf(request.getParameter("endTime")),true);
+    eventEntity.setProperty("timeRange", request.getParameter("startTime"));
     eventEntity.setProperty("eventDescription", request.getParameter("eventDescription"));
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.put(eventEntity);
