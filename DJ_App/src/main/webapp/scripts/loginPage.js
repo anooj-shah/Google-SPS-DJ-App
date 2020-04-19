@@ -12,7 +12,7 @@ signInButton.addEventListener('click', () => {
 
 function createEventForm() {
     console.log("create event");
-    document.getElementById("createEvent").hidden = false;
+    document.getElementById("createEvent").hidden = true;
     document.getElementById("joinEvent").hidden = true;
 }
 
