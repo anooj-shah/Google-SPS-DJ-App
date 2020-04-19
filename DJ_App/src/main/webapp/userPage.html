@@ -1,72 +1,69 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="UTF-8">
-    <title>DJ App</title>
-    <link rel="stylesheet" href="/style/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
-    <script src="/scripts/script.js"></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>DJ App</title>
+        <link rel="stylesheet" href="/style/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+        <script src="/scripts/script.js"></script>
+    </head>
 
-<body onload="updateData()">
-    <div class="internal-page">
-        <div class="side-bar">
-            <h1>Avicii</h1>
-        </div>
-        <div class="event-headers">
-            <div class="chooseEventID">
-                <div>
-                    <input type="text" name="eventID" id="eventID" placeholder="Enter Event ID">
-                    <!-- <input onclick="getInfo()" class="submit" type="submit" value="Submit"> -->
-                    <button onclick="getInfo()">Submit</button>
-                    <h2>
-                        Event Name
-                    </h2>
-                    <div id="eventName"></div>
-                    <!-- <h4 id="eventName"> -->
-                    </h4>
-                    <h4>
-                        Event ID
-                    </h4>
-                    <div id="eventIDNum"></div>
+    <body onload="updateData()">
+        <div class="internal-page">
+            <div class="side-bar">
+                <h1>Avicii</h1>
+            </div>
+            <div class="event-headers">
+                <div class="chooseEventID">
+                    <div>
+                        <input type="text" name="eventID" id="eventID" placeholder="Enter Event ID">
+                        <!-- <input onclick="getInfo()" class="submit" type="submit" value="Submit"> -->
+                        <button onclick="getInfo()">Submit</button>
+                        <h2>
+                            Event Name:
+                        </h2>
+                        <div id="eventName"></div>
+                        <!-- <h4 id="eventName"> -->
+                        </h4>
+                        <h4>
+                            Event ID:
+                        </h4>
+                        <div id="eventIDNum"></div>
 
-                    <!-- <h4 id="eventIDNum"></h4> -->
-                    <h3>
-                        Event DJ
-                    </h3>
-                    <h3 id="eventDJ"></h3>
-                    <div id="eventDJ"></div>
+                        <!-- <h4 id="eventIDNum"></h4> -->
+                        <h3>
+                            Event DJ:
+                        </h3>
+                        <h3 id="eventDJ"></h3>
+                        <div id="eventDJ"></div>
+                    </div>
                 </div>
             </div>
-             
-        </div>
 
-        <div class="suggest">
-            <form action="/songs" method="POST">
-                <p> Add your song here </p>
+            <div class="suggest">
+                <form action="/songs" method="POST">
+                    <p> Add your song here </p>
+                    <ul>
+                        <li>
+                            <label for="songName">Song name:</label>
+                            <input type="text" id="songName" name="songName">
+                        </li>
+                        <li>
+                            <label for="eventID">Event ID:</label>
+                            <input type="number" id="eventID" name="eventID">
+                        </li>
+                    </ul>
+                    <input type="submit"/>
+                </form>
+            </div>
+            <div class="song-queue">
+                <h2>Suggestions</h2>
+                <div id="song-list">
 
-                <ul>
-                    <li>
-                        <label for="songName">Song name:</label>
-                        <input type="text" id="songName" name="songName">
-                    </li>
-                    <li>
-                        <label for="eventID">Event ID:</label>
-                        <input type="number" id="eventID" name="eventID">
-                    </li>
-                </ul>
-                <input type="submit"/>
-            </form>
-        </div>
-        <div class="song-queue">
-            <h2>Suggestions</h2>
-            <div id="song-list">
-
+                </div>
             </div>
         </div>
-    </div>
-</body>
-<script src="/scripts/script.js"></script>
-
+    </body>
+    <script src="/scripts/script.js"></script>
 </html>

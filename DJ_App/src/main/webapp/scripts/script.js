@@ -9,6 +9,7 @@ function getEvents() {
     }
   });
 }
+
 function getInfo() {
   fetch('/events').then(response => response.json()).then((events) => {
     console.log("INSIDE GET INFO");
@@ -31,8 +32,6 @@ function getInfo() {
   });
 }
 
-
-
 function createListElement(event) {
   const element = document.createElement('li');
   element.innerText = event;
@@ -50,18 +49,18 @@ async function getSongs() {
     });  
 }
 
-// function getSongs() {
-//   fetch('/songs').then(response => response.json()).then((songs) => {
-//     const songsElement = document.getElementById('songs-container');
-//     songsElement.innerHTML = "";
-//     console.log(songs);
-//     for (i of songs) {
-//       songsElement.appendChild(createListElement(i.songName));
-//     }
-//   });
-// }
+function getGenre() {
+  // location is genre
+  fetch('/events').then(response => response.json()).then((events) => {
+    const genrelist = document.getElementById('genre-list');
+    genrelist.innerHTML = "";
+    console.log("Location" + events[0].location);
+    genrelist.appendChild(createListElement(events[0].location));
+  });
+}
 
 function updateData() {
     getInfo();
     getSongs();
+    getGenre();
 }
