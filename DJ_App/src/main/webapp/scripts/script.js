@@ -1,5 +1,5 @@
 function getEvents() {
-  fetch(`/events`).then(response => response.json()).then((events) => {
+  fetch('/events').then(response => response.json()).then((events) => {
     const eventsElement = document.getElementById('events-container');
 
     eventsElement.innerHTML = "";
@@ -9,7 +9,6 @@ function getEvents() {
     }
   });
 }
-
 function getSongs() {
   fetch('/songs').then(response => response.json()).then((songs) => {
     const songsElement = document.getElementById('songs-container');
@@ -22,17 +21,14 @@ function getSongs() {
 }
 
 function getInfo() {
-  fetch('/songs').then(response => response.json()).then((songs) => {
-    const eventID = document.getElementById('eventID');
-    console.log(eventID);
-    const eventID = document.getElementById('songs-container');
-
-    // const songsElement = document.getElementById('songs-container');
-    // songsElement.innerHTML = "";
-    // console.log(songs);
-    // for (i of songs) {
-    //   songsElement.appendChild(createListElement(i.songName));
-    // }
+  fetch('/events').then(response => response.json()).then((events) => {
+    console.log("INSIDE GET INFO");
+    // const eventID = document.getElementById('eventID').value;
+    // console.log("EVENTID" + eventID);
+    // const eventIDNum = document.getElementById('eventIDNum');
+    // eventIDNum.innerHTML = "";
+    // console.log("SONG" + songs[0].eventID);
+    // eventIDNum.appendChild(createListElement(songs[0].eventID));
   });
 }
 
