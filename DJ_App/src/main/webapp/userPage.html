@@ -15,12 +15,18 @@
             <h1>APP NAME</h1>
         </div>
         <div class="event-headers">
+            <div class="chooseEventID">
+                <form action="" method="post">
+                    <input type="text" name="eventID" id="eventID" placeholder="Enter Event ID">
+                    <input onclick="getSongs()" class="submit" type="submit" value="Submit">
+                </form>
+            </div>
             <div class="event-name">
                 <h2>
                     Event Name
                 </h2>
                 <h4 id="eventName">
-                    </h3>
+                    </h4>
             </div>
 
             <div class="event-id">
@@ -52,5 +58,6 @@
         </div>
     </div>
 </body>
+<script src="/scripts/script.js"></script>
 
 </html>

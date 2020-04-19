@@ -12,12 +12,15 @@ function getEvents() {
 
 function getSongs() {
   fetch('/songs').then(response => response.json()).then((songs) => {
-    const songsElement = document.getElementById('songs-container');
-    songsElement.innerHTML = "";
-    console.log(songs);
-    for (i of songs) {
-      songsElement.appendChild(createListElement(i.songName));
-    }
+    const eventID = document.getElementById('eventID');
+    console.log(eventID);
+    
+    // const songsElement = document.getElementById('songs-container');
+    // songsElement.innerHTML = "";
+    // console.log(songs);
+    // for (i of songs) {
+    //   songsElement.appendChild(createListElement(i.songName));
+    // }
   });
 }
 
