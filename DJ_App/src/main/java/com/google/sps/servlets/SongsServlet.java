@@ -96,6 +96,6 @@ public class SongsServlet extends HttpServlet {
     }
 
     // Stay on same page
-    response.sendRedirect("/");
+    response.sendRedirect("/userPage.html");
   }
 }
