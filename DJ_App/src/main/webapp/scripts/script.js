@@ -60,3 +60,8 @@ async function getSongs() {
 //     }
 //   });
 // }
+
+function updateData() {
+    getInfo();
+    getSongs();
+}

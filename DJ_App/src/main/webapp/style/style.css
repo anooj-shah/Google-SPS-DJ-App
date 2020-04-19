@@ -136,7 +136,7 @@ form .submit {
   color: #303654;
 }
 
-form #accessCode {
+form #accessCode, #songName, #eventID {
   height: 40px;
   width: 200px;
   font-size: 15px;
@@ -159,4 +159,8 @@ form #accessCode::placeholder {
   width: 80%;
   height: 93%;
   margin: auto;
+}
+
+ul {
+  list-style-type: none; 
 }
