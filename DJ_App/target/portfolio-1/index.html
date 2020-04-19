@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css/>"
-    <title></title>
-    <link rel="stylesheet" href="/style/loginPage.css">
-  </head>  
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css/>"
+        <title></title>
+        <link rel="stylesheet" href="/style/loginPage.css">
+    </head>  
   <body>
       <h1>APP Name</h1>
         <div class="container" id="container">
@@ -22,9 +22,10 @@
                             <form action="/events" method="GET">
                                 <input type="text" placeholder="Name" />
                                 <input type="text" placeholder="Event ID" />
-                                <button type="submit" value="Submit">Submit</button>         
+                                <!-- <button type="submit" value="Submit">Submit</button>    -->
+                                <button onclick="window.location.href='/userPage.html'">Continue</button>
                             </form>
-                        </div> 
+                        </div>
                         <div id="createEvent" hidden>
                             <form action="/events" method="POST">
                                 <input type="text" id="djName" name="djName" placeholder="DJ Name" />
@@ -32,11 +33,11 @@
                                 <input type="text" id="eventID" name="eventID" placeholder="Event ID" />
                                 <input type="text" id="location" name="location" placeholder="Location" />
                                 <input type="text" id="startTime" name="startTime" placeholder="Start Time" />
-                                <input type="text" id="endTime" name="endTime" placeholder="End Time" />
+                                <!-- <input type="text" id="endTime" name="endTime" placeholder="End Time" /> -->
                                 <input type="text" id="eventDescription" name="eventDescription" placeholder="Event Description" />
-                                
                                 <!-- <button type="submit" value="Submit">Submit</button>          -->
                                 <input type="submit"/>
+
                             </form>
                         </div>
                     </div>
@@ -66,6 +67,6 @@
                 </div>
             </div>
         </div>
-  </body>
-  <script src="/scripts/loginPage.js"></script>
+    </body>
+    <script src="/scripts/loginPage.js"></script>
 </html>    
