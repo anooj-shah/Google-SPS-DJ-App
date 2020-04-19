@@ -12,9 +12,21 @@ function getEvents() {
 
 function getSongs() {
   fetch('/songs').then(response => response.json()).then((songs) => {
+    const songsElement = document.getElementById('songs-container');
+    songsElement.innerHTML = "";
+    console.log(songs);
+    for (i of songs) {
+      songsElement.appendChild(createListElement(i.songName));
+    }
+  });
+}
+
+function getInfo() {
+  fetch('/songs').then(response => response.json()).then((songs) => {
     const eventID = document.getElementById('eventID');
     console.log(eventID);
-    
+    const eventID = document.getElementById('songs-container');
+
     // const songsElement = document.getElementById('songs-container');
     // songsElement.innerHTML = "";
     // console.log(songs);
