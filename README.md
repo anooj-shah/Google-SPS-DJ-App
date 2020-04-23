@@ -1,2 +1,2 @@
 # Google Software Product Sprint
- This repo will contain Team 8's DJ app
+Check out out DJ App MVP: http://dj-app-273305.appspot.com/
