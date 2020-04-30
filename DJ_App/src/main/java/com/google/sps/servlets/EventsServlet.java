@@ -27,20 +27,24 @@ import java.util.List;
 public class EventsServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
     Query query = new Query("Event").addSort("eventName", SortDirection.DESCENDING);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
-
+    System.out.println("HI");
     List<Event> events = new ArrayList<>();
+        System.out.println("HI");
+
     for (Entity entity : results.asIterable()) {
       long id = entity.getKey().getId();
-      long eventID = (long) entity.getProperty("eventID");
+      String eventID = (String) entity.getProperty("eventID");
       String djName = (String) entity.getProperty("djName");
       String eventName = (String) entity.getProperty("eventName");
       String location = (String) entity.getProperty("location");
       String timeRange = (String) entity.getProperty("timeRange");
       String eventDescription = (String) entity.getProperty("eventDescription");
+        System.out.println("HI");
 
       Event e = new Event(id, eventID, djName, eventName, location, timeRange, eventDescription);
 
@@ -51,6 +55,8 @@ public class EventsServlet extends HttpServlet {
 
     response.setContentType("application/json;");
     response.getWriter().println(gson.toJson(events));
+    System.out.println("HILast");
+
   }
 
   @Override
