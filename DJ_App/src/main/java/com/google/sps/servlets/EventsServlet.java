@@ -32,9 +32,7 @@ public class EventsServlet extends HttpServlet {
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
-    System.out.println("HI");
     List<Event> events = new ArrayList<>();
-        System.out.println("HI");
 
     for (Entity entity : results.asIterable()) {
       long id = entity.getKey().getId();
@@ -44,8 +42,6 @@ public class EventsServlet extends HttpServlet {
       String location = (String) entity.getProperty("location");
       String timeRange = (String) entity.getProperty("timeRange");
       String eventDescription = (String) entity.getProperty("eventDescription");
-        System.out.println("HI");
-
       Event e = new Event(id, eventID, djName, eventName, location, timeRange, eventDescription);
 
       events.add(e);
